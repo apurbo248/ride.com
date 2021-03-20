@@ -1,0 +1,40 @@
+.loginPage{
+    width: 300px;
+    margin: 3% auto 0;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 3);
+    height: 90%;
+    padding: 10px;
+    text-align: center; 
+}
+.inputBox{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+
+}
+.loginPage .btn{
+    width: 100%;
+    background-color: rgb(23, 184, 8);
+    border-radius: 20px;
+    border: none;
+    color: white;
+}
+.loginPage .remember{
+  text-align: left  !important;
+   
+}
+hr{
+    width: 80%;
+    background: #000;
+}
+.btn-g{
+    width: 80%;
+    background-color: rgb(7, 135, 158);
+    border-radius: 20px;
+    border: none;
+    height: 40px;
+    color: white;
+}
