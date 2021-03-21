@@ -1,11 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TransportType = (props) => {
-    const {TransportName,image}=props.transportType;
+    const {type,image,key}=props.transport;
     return (
-        <div className=" m-2 p-4  text-center shadow transport" style={{cursor:"pointer",width:"280px"}} >
-            <img className="w-50" src={image} alt=""/>
-            <h5>{TransportName}</h5>
+        <div className=" m-2 p-2 text-center shadow transport shadow " style={{cursor:"pointer",width:"280px"}} >
+            <Link  to={"/destination/"+key}>
+            <img className="w-45" src={image} alt=""/>
+            </Link>
+            <Link  to={"/destination/"+key}>
+            <h5>{type}</h5>
+            </Link>
         </div>
     );
 };

@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar,Nav,Form, Button } from "react-bootstrap";
-import Data from '../Data.json';
-import TransportType from "../TransportType/TransportType";
+import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
+
 const Header = () => {
-
-  const [transportType, setTransportType] = useState(Data);
-  console.log(transportType);
-
+  const [loggedInUser,setLoggedInUser] =useContext(UserContext)
   return (
       <div className="header">
-      <Navbar className="container"  expand="lg">
+      <Navbar className="container shadow mb-5"  expand="lg">
         <Navbar.Brand href="/home">Ride.com</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -21,17 +19,14 @@ const Header = () => {
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
           <Form inline>
-            <Button variant="outline-success" href="/login">Log In</Button>
+          {
+              loggedInUser.isSignedIn ? 
+                <strong style={{paddingTop:'9px'}}>{loggedInUser.name}</strong>
+              : <Link className="btn btn-success mx-3" to="/login"> Log in</Link>
+            }
           </Form>
         </Navbar.Collapse>
       </Navbar>
-      <div className=" d-flex flex-wrap justify-content-center pt-5">
-  
-        {
-          transportType.map(transportType =><TransportType transportType = {transportType}></TransportType>)
-        }
-        
-      </div>
       </div>
   );
 };

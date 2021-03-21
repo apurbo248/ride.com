@@ -9,36 +9,35 @@ import Header from './Components/Home/Header';
 import { createContext, useState } from 'react';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Destination from './Components/Destination/Destination';
+import Home from './Components/Home/Home';
 
-export const userContext = createContext();
+export const UserContext = createContext();
 
 function App() {
   const [loggedinUser, setLoggedinUser] = useState({});
   return (
-    <userContext.Provider value = {[loggedinUser,setLoggedinUser]}>
-    <p>name: {loggedinUser.name}</p>
-    <Header></Header>
+    <UserContext.Provider value = {[loggedinUser,setLoggedinUser]}>
     <Router>
+    <Header></Header>
       <Switch>
-      {/* <Route path="/home">
-            <home />
-          </Route> */}
-          <Route path="/login">
+         <Route exact path="/">
+            <Home></Home>
+         </Route>
+         <Route path="/home">
+          <Home></Home>
+         </Route>
+         <Route path="/login">
             <Login />
-          </Route>
-          <PrivateRoute path="/destination">
-            <Destination />
+         </Route>
+         <PrivateRoute path="/destination/bk1">
+            <Destination></Destination>
           </PrivateRoute>
-           {/* <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route> 
-       */}
+          <PrivateRoute path="/destination/:key">
+            <Destination></Destination>
+          </PrivateRoute>
        </Switch>
        </Router>
-      </userContext.Provider>
+      </UserContext.Provider>
   );
 }
 
