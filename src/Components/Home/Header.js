@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar,Nav,Form, Button } from "react-bootstrap";
+import { Navbar,Nav,Form} from "react-bootstrap";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 

@@ -11,13 +11,14 @@ import {
   signInWithEmailAndPassword,
 } from "./ManageLogin";
 import { useHistory, useLocation } from "react-router";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 // Messages
-const required = "This field is required";
+let required = "This field is required";
 
 // Error Component
-const errorMessage = (error) => {
+let errorMessage = (error) => {
   return <div className="invalid-feedback">{error}</div>;
 };
 
@@ -31,6 +32,7 @@ const Login = () => {
     email: "",
     password: "",
     photo: "",
+    success:""
   });
 
   const [newUser, setNewUser] = useState(false);
@@ -48,13 +50,13 @@ const Login = () => {
       history.replace(from);
     }
   };
-  const handleGoogleSignIn = () => {
+  const google = () => {
     googleSIgnInHandler().then((res) => {
       handleResponse(res, true);
     });
   };
 
-  const handleFbSignIn = () => {
+  const facebook = () => {
     facebookSignInHandler().then((res) => {
       handleResponse(res, true);
     });
@@ -79,58 +81,53 @@ const Login = () => {
 
   return (
     <Container>
-      <div className="form-container ">
-        <h4 onClick={() => setNewUser(!newUser)}
-              className="text-success btn-link border-0 "
-            >
-              {!newUser ? "Login" : "Sign up"}</h4>
-        <form onSubmit={handleSubmit(onSubmit)} className="form m-auto">
+      <div className="form-container rounded">
+        <h4><button
+              onClick={() => setNewUser(!newUser)}
+              className="text-success btn-link border-0 bg-light"
+    disabled        >
+              {!newUser ? "LogIn" : "Sign Up"}
+            </button></h4>
+        <form onSubmit={handleSubmit(onSubmit)} className="form">
           {newUser && (
             <input
-            className="form-control w-50"
               name="name"
               type="text"
               ref={register({ required: true })}
               placeholder="Name"
-              required
             />
           )}
           {errors.name && errorMessage(required)}
 
           <br />
           <input
-            className="form-control w-50"
             name="email"
             type="text"
             ref={register({ required: "enter a valid email" })}
-            placeholder="Enter your email"
+            placeholder="email"
             message="you must enter an valid email"
-            required
           />
           {errors.email &&
             errors.email.type === "required" &&
             errorMessage(required)}
           <br />
           <input
-           className="form-control w-50"
             name="password"
             type="password"
             ref={register({
               required: "You must specify a password",
               minLength: {
-                value: 6,
-                message: "Password must have at least 6 characters",
+                value: 8,
+                message: "Password must have at least 8 characters",
               },
             })}
-            placeholder="Enter your Password"
-            required
+            placeholder="Password"
           />
           {errors.password && errorMessage(errors.password.message)}
           <br />
 
           {newUser && (
             <input
-            className="form-control w-50"
               name="password_repeat"
               type="password"
               ref={register({
@@ -145,15 +142,14 @@ const Login = () => {
           <br />
 
           <input
-          
-          className="form-control w-50 btn btn-warning"
+            className="btn btn-warning"
             type="submit"
             value={newUser ? "sign up" : "log in"}
           />
           <br />
 
           <span className="d-flex align-items-center mx-auto fs-3">
-            {newUser ? "Already have an account ?" : "Don't have an account?"}
+            {newUser ? "Already have an account" : "Don't have an account?"}
             <button
               onClick={() => setNewUser(!newUser)}
               className="text-danger btn-link border-0 bg-light"
@@ -162,23 +158,23 @@ const Login = () => {
             </button>
           </span>
         </form>
-        {/* {user.success ? (
+        {user.success ? (
           <h5 className="text-success text-center mt-3">
             user {newUser ? "created" : "logged in"} successfully
           </h5>
         ) : (
           <h5 className="text-danger text-center mt-3">{user.error}</h5>
-        )} */}
+        )}
       </div>
       <div className="app-authentication">
         <div className="google">
-          <Button className="mb-2 app-btn d-flex align-items-center justify-content-between" onClick={handleGoogleSignIn} variant="info">
-            <i className="fab fa-lg fa-google"></i>Continue with google
+          <Button className="app-btn d-flex align-items-center justify-content-between" onClick={google} variant="info w-75">
+          <FontAwesomeIcon icon={faGoogle} /> Continue with google
           </Button>
         </div>
         <div className="facebook">
-          <Button className="app-btn d-flex align-items-center justify-content-between" onClick={handleFbSignIn} variant="primary">
-            <i className="fab fa-lg fa-facebook"></i>Continue with facebook
+          <Button className="app-btn d-flex align-items-center justify-content-between" onClick={facebook} variant="primary w-75">
+          <FontAwesomeIcon icon={faFacebook} />Continue with facebook
           </Button>
         </div>
       </div>

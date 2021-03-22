@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Card, Container } from "react-bootstrap";
 import { useParams } from "react-router";
 import { locations } from "../../AllData/locationData";
-import "./PickAndDrop.css";
 import { transportData } from '../../AllData/transportTypeData';
 import FoundTransport from "../Result/Result";
 
@@ -39,7 +38,7 @@ const PickAndDrop = () => {
       {!search ? (
         <Card
           className="my-3 p-3 w-150"
-          style={{ backgroundColor: "gray" ,borderRadius:'10px' }}
+          style={{ backgroundColor: "#e0dcdc" ,borderRadius:'10px', color:'black' }}
         >
           <form onSubmit={() => setSearch(true)}>
             <label htmlFor="pick">Pick From</label>
@@ -48,7 +47,7 @@ const PickAndDrop = () => {
             
               name="pick"
               onChange={handleChange}
-              className="select-destination"
+              className=" form-control"
               list="pick"
               placeholder="select pick up location"
               required
@@ -62,6 +61,7 @@ const PickAndDrop = () => {
             <label htmlFor="drop">Drop To</label>
             <br />
             <input
+            className="form-control"
               name="drop"
               onChange={handleChange}
               list="drop"
@@ -74,10 +74,10 @@ const PickAndDrop = () => {
               ))}
             </datalist>
             <br />
-            <label htmlFor="date">Date</label>
-            <input type="date" name="date" id="date" required/>
+            {/* <label htmlFor="date">Date</label>
+            <input type="date" name="date" id="date" required/> */}
             <input
-              className="btn btn-primary w-100 my-3"
+              className="btn btn-warning w-100 my-3"
               type="submit"
               value="search"
               style={{borderRadius:'10px'}}
@@ -86,7 +86,7 @@ const PickAndDrop = () => {
           </form>
         </Card>
       ):
-      <FoundTransport transportAndDestination={transportAndDestination}></FoundTransport>
+      <FoundTransport transportAndDestination={transportAndDestination} key={transportAndDestination.key}></FoundTransport>
       } 
       
     </Container>

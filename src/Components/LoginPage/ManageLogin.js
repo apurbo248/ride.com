@@ -36,13 +36,13 @@ export const facebookSignInHandler = () => {
     .then((res) => {
       const user = res.user;
       console.log('fb user after sign in:' ,user);
-      const {displayName, photoURL, email,R } = res.user;
+      const {displayName, photoURL, email, R } = res.user;
           const signedInUser = {
             isSignedIn: true,
             name: displayName,
             email: email,
             photo: photoURL,
-            success: R,
+            success: R
           };
           return signedInUser;
     })

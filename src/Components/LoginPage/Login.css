@@ -1,41 +1,69 @@
-/* .loginPage{
-    width: 400px;
-    margin: 3% auto 0;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 3);
-    height: 90%;
-    padding: 10px;
-    text-align: center; 
-}
-.inputBox{
-    border-radius: 20px;
-    padding: 5px;
-    margin: 5px 0;
+.login-form{
+    height: 1000vh;
     width: 100%;
-    border: 1px solid #999;
-    outline: none;
+}
+
+.app-authentication{
+    height: 100px;
+    width: 40%;
+    margin: 0 auto;
+}
+.form-container{
+    height: auto;
+    margin: 0 auto;
+    width: 60%;
+    background: rgb(246, 247, 247);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.form-container h4{
+    width: 80%;
+    margin: 5px auto;
+    font-weight: 700;
 
 }
-.loginPage .btn{
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    
+}
+.invalid-feedback {
+    display: block !important;
+    font-size: 0.8rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+input{
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: none;
     width: 100%;
-    background-color: rgb(23, 184, 8);
-    border-radius: 20px;
-    border: none;
-    color: white;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(95, 92, 92, 0.582);
 }
-.loginPage .remember{
-  text-align: left  !important;
-   
+
+.google, .facebook {
+    margin:10px;
+    display: flex;
+  
+    align-items: center;
 }
-hr{
-    width: 80%;
-    background: #000;
+
+i {
+    margin-right: 15px;
 }
-.btn-g{
-    width: 80%;
-    background-color: rgb(7, 135, 158);
-    border-radius: 20px;
-    border: none;
-    height: 40px;
-    color: white;
-    margin-bottom: 5px;
-} */
+
+.toggler {
+    width: 70%;
+    margin: 0 auto;
+}
+    .app-btn{
+        width: 400px !important;
+    }

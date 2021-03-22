@@ -1,0 +1,41 @@
+
+.found{
+    padding: 10px;
+    border-radius: 10px;
+    background: #f7f5f5;
+    height: 280px;
+    margin-bottom: 15px;
+    color: white;
+}
+.found .route {
+    padding: 10px;
+    border-radius: 10px;
+    background: #37ca29;
+    height: 70px;
+    margin: 10px 0;
+}
+.rides {
+    height: 60px;
+    width: 100%;
+}
+.ride {
+    height: 45px;
+    background: white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+.ride-image {
+    height: 30px;
+    width: 30px;
+    margin-right: 1px solid black;
+}
+.passenger img {
+    height: 20px;
+    width: 20px;
+}
+p{
+    font-size: 1.2rem;
+}

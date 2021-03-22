@@ -2,7 +2,7 @@ import React from 'react';
 import './Result.css'
 import peopleIcon from '../../images/peopleicon.png'
 import { fareChart } from '../../AllData/fare';
-const FoundTransport = (props) => {
+const Result = (props) => {
     const {key="bk1",destination} = props.transportAndDestination
     console.log('destination',key,destination)
     const foundTransport = fareChart.filter(transport=> transport.key === key)
@@ -18,9 +18,9 @@ const FoundTransport = (props) => {
                  foundTransport.map(transport=>(
                     <div className="rides">
                     <div className="ride">
-                        <img src={transport.image} alt="" className="ride-image w-50"/>
+                        <img src={transport.image} alt="" className="ride-image"/>
                         <p className="ride-type">{transport.type}</p>
-                        <p className="passenger "><img src={peopleIcon} alt=""/>{transport.passenger}</p>
+                        <p className="passenger"><img src={peopleIcon} alt=""/>{transport.passenger}</p>
                         <p className="fare">${transport.fare}</p>
                     </div>     
                     </div>
@@ -30,4 +30,4 @@ const FoundTransport = (props) => {
     );
 };
 
-export default FoundTransport;
+export default Result;
