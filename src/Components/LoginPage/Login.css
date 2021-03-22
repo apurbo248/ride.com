@@ -52,18 +52,12 @@ input{
 .google, .facebook {
     margin:10px;
     display: flex;
-  
     align-items: center;
 }
-
-i {
-    margin-right: 15px;
-}
-
 .toggler {
     width: 70%;
     margin: 0 auto;
 }
-    .app-btn{
+  .app-btn{
         width: 400px !important;
     }

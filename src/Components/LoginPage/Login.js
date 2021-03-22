@@ -14,10 +14,9 @@ import { useHistory, useLocation } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-// Messages
+
 let required = "This field is required";
 
-// Error Component
 let errorMessage = (error) => {
   return <div className="invalid-feedback">{error}</div>;
 };
@@ -31,8 +30,7 @@ const Login = () => {
     name: "",
     email: "",
     password: "",
-    photo: "",
-    success:""
+    photo: ""
   });
 
   const [newUser, setNewUser] = useState(false);
@@ -69,7 +67,7 @@ const Login = () => {
         data.email,
         data.password
       ).then((res) => {
-        handleResponse(res, false);
+        handleResponse(res, true);
       });
     }
     if (!newUser && data.email && data.password) {
@@ -88,6 +86,7 @@ const Login = () => {
     disabled        >
               {!newUser ? "LogIn" : "Sign Up"}
             </button></h4>
+           
         <form onSubmit={handleSubmit(onSubmit)} className="form">
           {newUser && (
             <input
@@ -115,10 +114,10 @@ const Login = () => {
             name="password"
             type="password"
             ref={register({
-              required: "You must specify a password",
+              required: "Give a password",
               minLength: {
-                value: 8,
-                message: "Password must have at least 8 characters",
+                value: 6,
+                message: "Password must have at least 6 characters",
               },
             })}
             placeholder="Password"
@@ -160,7 +159,7 @@ const Login = () => {
         </form>
         {user.success ? (
           <h5 className="text-success text-center mt-3">
-            user {newUser ? "created" : "logged in"} successfully
+           new user {newUser ? "created" : "logged in"} successfully
           </h5>
         ) : (
           <h5 className="text-danger text-center mt-3">{user.error}</h5>

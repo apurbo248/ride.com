@@ -19,9 +19,9 @@ const Result = (props) => {
                     <div className="rides">
                     <div className="ride">
                         <img src={transport.image} alt="" className="ride-image"/>
-                        <p className="ride-type">{transport.type}</p>
-                        <p className="passenger"><img src={peopleIcon} alt=""/>{transport.passenger}</p>
-                        <p className="fare">${transport.fare}</p>
+                        <p className="ride-type " style={{color:'black'}}>{transport.type}</p>
+                        <p className="passenger" style={{color:'black'}}><img src={peopleIcon} alt=""/>{transport.passenger}</p>
+                        <p className="fare" style={{color:'black'}}>${transport.fare}</p>
                     </div>     
                     </div>
                  ))

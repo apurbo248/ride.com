@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import firebaseConfig from './FirebaseConfig';
+import firebaseConfig from '../LoginPage/FirebaseConfig';
 
 
 export  const initiateLoginFramework = () => {
@@ -36,13 +36,13 @@ export const facebookSignInHandler = () => {
     .then((res) => {
       const user = res.user;
       console.log('fb user after sign in:' ,user);
-      const {displayName, photoURL, email, R } = res.user;
+      const {displayName, photoURL, email,R } = res.user;
           const signedInUser = {
             isSignedIn: true,
             name: displayName,
             email: email,
             photo: photoURL,
-            success: R
+            success: R,
           };
           return signedInUser;
     })
@@ -60,7 +60,7 @@ export const createAccountWithEmailAndPassword = (name, email, password) => {
       newUserInfo.error = "";
       newUserInfo.success = true;
       newUserInfo.isSignedIn = false;
-    //   upDateUserName(name);
+      upDateUserName(name);
       return newUserInfo;
     })
     .catch((error) => {
@@ -92,17 +92,17 @@ export const signInWithEmailAndPassword = (email,password) => {
       return signedInUserInfo;
     });
   }
-//   const upDateUserName = (name) => {
-//     const user = firebase.auth().currentUser;
+  const upDateUserName = (name) => {
+    const user = firebase.auth().currentUser;
 
-//     user
-//       .updateProfile({
-//         displayName: name,
-//       })
-//       .then(function () {
-//         console.log("user name updated successfully");
-//       })
-//       .catch(function (error) {
-//         console.log(error.message);
-//       });
-//   };
+    user
+      .updateProfile({
+        displayName: name,
+      })
+      .then(function () {
+        console.log("user name updated successfully");
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
+  };
